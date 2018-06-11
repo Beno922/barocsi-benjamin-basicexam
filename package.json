@@ -1,0 +1,11 @@
+{
+  "name": "barocsi-benjamin-basicexam",
+  "version": "1.0.0",
+  "description": "## Indulás Futtasd le a _sql/datas.sql_ fileod tartamát az általad használt adatbázis kezelőben. Ezzel létrejön egy starwars nevű adatbázis, és benne egy transport table. Ez a tábla starwars-os űrhajók adatait tartalmazza. Tanulmányozd át a táblát. Nézd meg melyik kötelező adat, és milyen egyéb megszorítások vannak. Nézd meg a tárolt adatokat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
