@@ -1,0 +1,29 @@
+1.
+SELECT manufacturer, Count(model) AS 'Modellek száma'
+FROM transport
+GROUP BY manufacturer;
+
+2.
+SELECT model,manufacturer, image
+FROM `transport`
+ORDER BY `cargo_capacity` DESC
+LIMIT 3;
+
+3.
+SELECT model, cargo_capacity, passengers, max_atmosphering_speed, crew
+FROM transport
+WHERE (crew = 1) AND (manufacturer LIKE 'A%' OR 'B%' OR 'C%');
+
+4.
+SELECT *
+FROM `transport`
+WHERE (manufacturer LIKE '%Corporation%') AND (passengers > 0) AND (cost_in_credits BETWEEN 10000 AND 200000);
+
+5.
+SELECT model AS 'Megnevezés', manufacturer AS 'Gyártó'
+FROM `transport`
+WHERE (crew BETWEEN 1 AND 5) AND (NOT passengers = 0 OR NOT passengers = NULL) AND (NOT cargo_capacity = 0 OR NOT cargo_capacity = NULL)
+ORDER BY crew
+LIMIT 3;
+
+(nem volt megadva rendezési direktíva, így maradt növekvő sorrendben)
