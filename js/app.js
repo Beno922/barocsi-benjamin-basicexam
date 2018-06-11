@@ -49,9 +49,9 @@ function notNullConsumables(spaceships) {
   return hasValue;
 }
 
-//tömbértékek szerkesztésére ötlet
+//értékek szerkesztésére ötlet
 
-// function changeNulls(spacevessels) {
+// function changeNulls(spacevessels, "unknown") {
 //   for (var i in spacevessels) {
 //     if (spacevessels.value === "NULL") {
 //       spacevessels.value = "unknown";
@@ -60,13 +60,42 @@ function notNullConsumables(spaceships) {
 //   return spacevessels;
 // };
 
-// var speceshipsCorrected = {}
+// var spaceshipsCorrected = []
 
 // spaceshipsCorrected = changeNulls(spacevessels);
 
-//megjelenítés
+//megjelenítés -referenciahibát orvsolni előbb
 
-//XML error megoldása után...
+function spaceShipToThumbnail(spaceships, containerPanel) {
+  var objThumbnail = document.createElement('DIV');
+  var objThumbnailName = document.createElement('DIV');
+  var objThumbnailPhoto = document.createElement('DIV');
+  var objPhotoImage = document.createElement('IMG');
+
+  objThumbnail.classList.add('Thumbnail');
+  objThumbnailName.classList.add('Thumbnail-Name');
+  objThumbnailName.innerText = spaceships.name;
+  objThumbnail.appendChild(objThumbnailName);
+  objThumbnail.appendChild(objThumbnailPhoto);
+  objThumbnailPhoto.appendChild(objPhotoImage);
+  objPhotoImage.setAttribute('src', 'images/' + spaceships.image);
+  containerPanel.appendChild(objThumbnail);
+};
+
+var objSpaceships = document.querySelector('.shapceship-list');
+
+for (var i = 0; i < spaceships.length; i++) {
+  spaceshipToThumbnail(spaceships[i], objSpaceships);
+};
+
+function showSpaceships(spaceships) {
+  var objSpaceships = document.querySelector('.shapceship-list');
+
+  objSpaceships.innerText = '';
+  for (var i = 0; i < spaceships.length; i++) {
+    spaceshipToThumbnail(spaceships[i], objSpaceships);
+  };
+};
 
 //statisztika
 
@@ -75,7 +104,7 @@ var spaceshipStatistics = document.querySelector('.shapceship-list');
 spaceshipStatistics.innerText = `Egy fős legénységgel rendelkező hajók darabszáma:  ${countOfSingleCrewSpaceships()}
 A legnagyobb kargókapacitással rendelkező hajó neve:  ${nameOfMaxOfCargoCapacity()}
 Az összes hajó összes utasainak száma: ", ${sumOfAllPassengers()}
-A leghosszabb hajó képe: ", "<img src=", ${pictureOfLongestSpaceship()}>`
+A leghosszabb hajó képe: ", "<img src=", ${pictureOfLongestSpaceship()}>`;
 
 //számlálás
 
@@ -121,11 +150,12 @@ function pictureOfLongestSpaceship(spaceships) {
     }
   }
   return max.image;
-}
+};
 
 //kereső félkész
 var objSearchTextBox = document.querySelector('#search-text');
 var objSearchButton = document.querySelector('#search-button');
+
 objSearchButton.addEventListener('click', searchSpaceship, false);
 
 var spaceshipDetailsDiv = document.querySelector('.one-spaceship')
@@ -141,6 +171,6 @@ function searchSpaceship() {
     }
   }
   spaceshipDetailsDiv.innerHTML = filtered;
-}
+};
 
-getData('json/spaceships.json', successAjax);
+getData('/json/spaceships.json', successAjax);

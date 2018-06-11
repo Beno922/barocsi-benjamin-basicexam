@@ -41,13 +41,13 @@ __A style.css__ file-t módosíthatod, az alkalmazás kinézetét testre szabhat
 ### Feladatok
 1. A kapott adatokat rendezd ár(cost_in_creadits) szerint növekvő sorrendbe. -kész
 2. Töröld az összes olyan adatot, ahol a consumables értéke NULL. Fontos, hogy ne csak undefined-ra állítsd a tömbelemet!!! -megírva
-3. Az összes NULL értéket (minden objektum minden tulajdonságánál) módosítsd "unknown"-ra -megírva
+3. Az összes NULL értéket (minden objektum minden tulajdonságánál) módosítsd "unknown"-ra -ötlet rá kommentben
 4. A shapceship-list class-ű divbe jelenítsd meg az így kapott hajók adatait, beleérve a képét is.
 5. Készítened kell egy statisztikát, mely a shapceship-list class-ű div aljára a következő adatokat fogja beleírni: -megírva
 * Egy fős (crew = 1) legénységgel rendelkező hajók darabszáma. -számlálás
 * A legnagyobb cargo_capacity-vel rendelkező hajó neve (model) -max
 * Az összes hajó utasainak (passengers) összesített száma -összeg
-* A leghosszabb(lengthiness) hajó képe -max
+* A leghosszabb(lengthiness) hajó képe -max, de képpel
 
 6. A jobb oldalon található keresősáv segítségével legyen lehetőség a hajókra rákeresni _model_ szerint. 
 * A keresés kattintásra induljon -onclick
